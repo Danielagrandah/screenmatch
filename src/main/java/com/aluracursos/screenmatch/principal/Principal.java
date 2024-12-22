@@ -7,8 +7,10 @@ import com.aluracursos.screenmatch.service.ConsumoAPI;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
     private Scanner teclado = new Scanner(System.in);
@@ -45,7 +47,21 @@ public class Principal {
 
         }*/
         // Simplica el fori e imprime el titulo de los episodios para las temporadas
-        temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
+        //temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
+
+        //Convertir todas las infroamciones a una lista del tipo datosEpisodio
+
+        List<DatosEpisodio> datosEpisodios = temporadas.stream()
+                .flatMap(t -> t.episodios().stream())
+                .collect(Collectors.toList());
+
+        // Top 5 Episodios
+        System.out.println("Top 5 mejores Episodios ");
+        datosEpisodios.stream()
+                .filter(e -> !e.evaluacion().equalsIgnoreCase("N/A"))
+                .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
+                .limit(5)
+                .forEach(System.out::println);
 
 
     }

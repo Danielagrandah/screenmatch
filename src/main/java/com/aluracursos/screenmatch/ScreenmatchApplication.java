@@ -6,6 +6,8 @@ import com.aluracursos.screenmatch.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 
+import java.util.List;
+
 
 public class ScreenmatchApplication implements CommandLineRunner {
 
@@ -35,10 +37,12 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		temporadas.forEach(System.out::println);*/
 	@Override
 	public void run(String... args) throws Exception {
-	/*	Principal principal = new Principal();
-		principal.muestraMenu();*/
-		EjemploStreams ejemploStreams = new EjemploStreams();
-		ejemploStreams.muestraEjemplo();
+		Principal principal = new Principal();
+		principal.muestraMenu();
+	/*	EjemploStreams ejemploStreams = new EjemploStreams();
+		ejemploStreams.muestraEjemplo();*/
+
+
 
 	}
 }
