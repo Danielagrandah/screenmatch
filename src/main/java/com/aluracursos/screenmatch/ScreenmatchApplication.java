@@ -1,6 +1,7 @@
 package com.aluracursos.screenmatch;
 
 
+import com.aluracursos.screenmatch.principal.EjemploStreams;
 import com.aluracursos.screenmatch.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,11 +12,6 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(ScreenmatchApplication.class, args);
 	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		Principal principal = new Principal();
-		principal.muestraMenu();
 //		var consumoApi = new ConsumoAPI();
 //		var json = consumoApi.obtenerDatos("http://www.omdbapi.com/?t=game+of+thrones&apikey=f1e64aca");
 //		// Muestra una imagen aleqtoriq
@@ -37,6 +33,12 @@ public class ScreenmatchApplication implements CommandLineRunner {
 			temporadas.add(datosTemporadas);
 		}
 		temporadas.forEach(System.out::println);*/
+	@Override
+	public void run(String... args) throws Exception {
+	/*	Principal principal = new Principal();
+		principal.muestraMenu();*/
+		EjemploStreams ejemploStreams = new EjemploStreams();
+		ejemploStreams.muestraEjemplo();
 
 	}
 }
