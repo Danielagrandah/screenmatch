@@ -2,6 +2,7 @@ package com.aluracursos.screenmatch.model;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Episodio {
     private Integer temporada;
