@@ -12,4 +12,6 @@ public class Serie {
     private String premios;
     private String poster;
     private String sinopsis;
+
+    public Serie(DatosSerie datosSerie)
 }
