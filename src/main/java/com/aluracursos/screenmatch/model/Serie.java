@@ -22,7 +22,7 @@ public class Serie {
     private String premios;
     private String poster;
     private String sinopsis;
-    @Transient
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Episodio> episodios;
     public Serie(){
 
@@ -52,6 +52,13 @@ public class Serie {
         return titulo;
     }
 
+    public List<Episodio> getEpisodios() {
+        return episodios;
+    }
+    public void setEpisodios(List<Episodio> episodios) {
+        episodios.forEach(e -> e.setSerie(this));
+        this.episodios = episodios;
+    }
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -123,13 +130,16 @@ public class Serie {
     @Override
     public String toString() {
         return  "Titulo: '" + titulo + '\'' +
-                "Genero: " + genero +
+                ", Genero: " + genero +
                 ", Total de temporadas: " + totalDeTemporadas +
                 ", Evaluacion: " + evaluacion +
                 ", Actores: '" + actores + '\'' +
                 ", Idiomas: '" + idiomas + '\'' +
                 ", Premios: '" + premios + '\'' +
                 ", Poster:'" + poster + '\'' +
-                ", Sinopsis: '" + sinopsis + '\'' ;
+                ", Sinopsis: '" + sinopsis + '\'' +
+                 ", Episodios: '" + episodios + '\'';
     }
+
+
 }
