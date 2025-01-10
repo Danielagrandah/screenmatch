@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-public record SerieDTO (String titulo,
+public record SerieDTO (Long id,
+                        String titulo,
                         Integer totalDeTemporadas,
                         Double evaluacion,
                         String poster,
